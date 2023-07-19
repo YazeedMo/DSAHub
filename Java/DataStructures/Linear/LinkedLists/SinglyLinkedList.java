@@ -58,14 +58,22 @@ public class SinglyLinkedList<E> {
     public SinglyLinkedList() { }               // Constructs and initially empty list
 
     // Access methods
-    public int size() { return size; }
-    public boolean isEmpty() { return size == 0; }
+    public int size() {
+        return size;
+    }
+    public boolean isEmpty() {
+        return size == 0;
+    }
     public E first() {                          // Returns (but does not remove) the first element
-        if (isEmpty()) { return null; }
+        if (isEmpty()) {
+            return null;
+        }
         return head.getElement();
     }
     public E last() {
-        if (isEmpty()) { return null; }
+        if (isEmpty()) {
+            return null;
+        }
         return tail.getElement();
     }
 
