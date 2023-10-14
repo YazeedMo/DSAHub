@@ -10,4 +10,6 @@
 
 - **Stacks**: Last-In-First-Out (LIFO) data structure. [Read more & navigate to code.](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Stacks)
 
+- **Queues**: First-In-First-Out (FIFO) data structure. [Read more and navigate to code](https://github.com/YazeedMo/DSAHub/tree/master/DataStructures/Linear/Queues)
+
 </details>
