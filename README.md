@@ -1,11 +1,30 @@
 # DSAHub
 
-The DSAHub (Data Structures & Algorithms Hub) is an ongoing project focused on providing clear implementations and explanations of fundamental data structures and algorithms. As the cornerstone of computer science and software engineering, understanding these principles is crucial. DSAHub aims to be a reliabe source for learners and professionals alike.
+A collection of my implementations and study notes on Data Structures and Algorithms. This repository serves as both a personal reference and a source for fellow learners navigating the intricate landscape of DSA. As my journey through DSA continues, I'll be updating and expanding this repository, so expect ongoing changes and additions.
 
-## Structure
-
-The repository is organized into two primary directories:
-- **DataStructures**: Contains various fundamental data structures, further categorized based on their nature (e.g., Linear, Non-linear, Hashing).
-- **Algorithms**: Houses a collection of essential algorithms, grouped by their primary purpose or technique (e.g., Sorting, Searching, Dynamic Programming).
-
-For a deeper dive into each category and its content, navigate to the respective directories.
+## Table of Contents
+- [Data Structures](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures)
+    - [Linear](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear)
+        - [Arrays](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Arrays)
+            - [DynamicArray.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Arrays/DynamicArray.java)
+        - [LinkedLists](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/LinkedLists)
+            - [SinglyLinkedList.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/LinkedLists/SinglyLinkedList.java)
+            - [DoublyLinkedList.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/LinkedLists/DoublyLinkedList.java)
+            - [CircularlyLinkedList.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/LinkedLists/CircularlyLinkedList.java)
+        - [Stacks](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Stacks)
+            - [Stack.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Stacks/Stack.java)
+            - [ArrayStack.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Stacks/ArrayStack.java)
+            - [LinkedStack.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Stacks/LinkedStack.java)
+        - [Queues](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues)
+            - [Queue.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/Queue.java)
+            - [ArrayQueue.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/ArrayQueue.java)
+            - [LinkedQueue.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/LinkedQueue.java)
+            - [Deque.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/Deque.java)
+            - [LinkedDeque.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/LinkedDeque.java)
+            - [CircularDeque.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/CircularDeque.java)
+            - [LinkedCircularDeque.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/LinkedCircularDeque.java)
+- [Algorithms](https://github.com/YazeedMo/DSAHub/tree/master/Java/Algorithms)
+    - [Searching](https://github.com/YazeedMo/DSAHub/tree/master/Java/Algorithms/Searching)
+        - [BinarySearch.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/Algorithms/Searching/BinarySearch.java)
+    - [Sorting](https://github.com/YazeedMo/DSAHub/tree/master/Java/Algorithms/Sorting)
+        - [InsertionSort.java](https://github.com/YazeedMo/DSAHub/tree/master/Java/Algorithms/Sorting/InsertionSort.java)
