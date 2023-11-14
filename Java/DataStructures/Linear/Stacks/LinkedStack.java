@@ -1,40 +1,50 @@
 package org.dsahub;
 
+
 /*
-    LinkedStack
+    LINKED STACK (USING ADAPTER PATTERN)
     ------------------------------------------------------------------------------------
-    A concrete implementation of the Stack interface using a singly linked list as its
-    underlying mechanism. LinkedStack offers dynamic sizing, growing and shrinking as
-    elements are added or removed. It provides constant-time performance for its basic
-    operations without the need for any resizing operations.
+    Description:
+    - Implementation of a stack using a singly linked list.
 
-    Advantages:
-    - Dynamic Sizing: Automatically grows and shrinks without the need for manual resizing.
-    - Consistent Performance: Operations like push, pop, and top are consistently fast
-      regardless of the size of the stack.
+    Characteristics:
+    - Time complexity:
+        * Access (top): O(1)
+        * Search: O(n)
+        * Insertion (push): O(1)
+        * Deletion (pop): O(1)
+    - Space complexity: O(n)
+    - Use cases: When dynamic size and constant-time access and insertion/removal
+      at the top are required.
 
-    Disadvantages:
-    - Memory Overhead: Each element in the linked list introduces an overhead of storing an
-      additional pointer for the next node. This makes LinkedStack generally consume more
-      memory per element that ArrayStack.
+    - Advantages: Dynamic size, efficient insertions/removals at the top.
+    - Disadvantages: O(n) search time, higher memory overhead compared to arrays.
 
-    Adapter Pattern:
-    The LinkedStack serves as an example of the Adapter Pattern, where the underlying
-    SinglyLinkedList class provides a rich interface with various methods. However,
-    the LinkedStack adapts this interface to provide only the specific methods required
-    for the Stack behaviour (push, pop, top). By doing so, it 'adapts' the more general
-    encapsulation and separation of concerns.
+    Operation/Methods:
+    - size(): Returns the number of elements in the stack.
+    - isEmpty(): Tests whether the stack is empty.
+    - push(E e): Inserts an element at the top of the stack.
+    - top(): Returns (but does not remove) the element at the top of the stack.
+    - pop(): Removes and returns the top element from the stack.
+*/
 
-    In practice, LinkedStack is suitable for scenarios where dynamic growth and shrinkage
-    are anticipated and where the consistent performance of stack operations is preferred
-    over potential memory overhead concerns.
 
- */
+public class LinkedStack<E> implements StackInterface<E> {
 
-public class LinkedStack<E> implements Stack<E> {
 
-    private SinglyLinkedList<E> list = new SinglyLinkedList<>();        // An empty list
-    private LinkedStack() { }                                           // New stack relies on the initially empty list
+    // INSTANCE VARIABLES
+
+    // This implementation uses the adapter pattern to adapt
+    // the SinglyLinkedList to the StackInterface
+    private SinglyLinkedList<E> list = new SinglyLinkedList<>();    // An empty list
+
+
+    // CONSTRUCTORS
+
+    public LinkedStack() {}                   // New stack relies on the initially empty list
+
+
+    // ACCESS METHODS
 
     @Override
     public int size() {
@@ -47,13 +57,16 @@ public class LinkedStack<E> implements Stack<E> {
     }
 
     @Override
-    public void push(E e) {
-        list.addFirst(e);
-    }
-
-    @Override
     public E top() {
         return list.first();
+    }
+
+
+    // PUBLIC UPDATE METHODS
+
+    @Override
+    public void push(E e) {
+        list.addFirst(e);
     }
 
     @Override

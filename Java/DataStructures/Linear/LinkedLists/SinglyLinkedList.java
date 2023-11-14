@@ -1,4 +1,4 @@
-package org.dsahub.datastructures;
+package org.dsahub;
 
 /*
     SINGLY LINKED LIST
