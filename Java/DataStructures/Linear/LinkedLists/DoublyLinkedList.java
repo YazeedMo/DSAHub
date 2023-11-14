@@ -3,46 +3,41 @@ package org.dsahub;
 /*
     DOUBLY LINKED LIST
     ------------------------------------------------------------------------------------
-    A doubly linked list is a type of linked list data structure where each node contains
-    to pointers (references) instead of one, allowing it to establish links with both the
-    previous and the next node in the list. This bidirectional linkage enables traversing
-    the list in both forward and backward directions
+    Description:
+    - A linear data structure where elements are stored in nodes. Each node has a reference
+      to the previous and next nodes, forming a doubly linked structure.
 
-    In doubly linked list, each node has three main components:
-    1. Element: the actual data that the node holds
-    2. Next Pointer: A reference to the next node in the list
-    3. Previous Pointer: A reference to the previous node in the list
+    Characteristics:
+    - Time complexity:
+        * Access: O(n)
+        * Search: O(n)
+        * Insertion: O(1) for head/tail, O(n) for middle
+        * Deletion: O(1) for head/tail, O(n) for middle
+    - Space complexity: O(n)
+    - Use cases: When frequent insertions/deletions at both ends are required.
 
-    In order to avoid some special cases when operating near the boundaries of a doubly
-    linked list, it helps to add special nodes at both ends of the list: a "header" node
-    at the beginning of the list, and a "trailer" node at the end of the list.
-    These "dummy" nodes are known as sentinels (or guards), and they do not store elements
-    of the primary sequence.
+    - Advantages: Supports efficient insertions/deletions at both ends.
+    - Disadvantages: Higher memory overhead compared to singly linked lists.
 
-    ADVANTAGES:
-    ------------------------------------------------------------------------------------
-    - Bidirectional traversal: You can easily traverse the list in both forward and backward
-      directions, making it useful for certain applications
-    - Efficient insertion and deletion: Insertions and deletions can be more efficient
-      compared to singly linked lists since you have direct access to both the previous
-      and next nodes
+    Operation/Methods:
+    - size()
+    - isEmpty()
+    - first(): Returns (but does not remove) the first element
+    - last(): Returns (but does not remove) the last element
+    - addFirst(E e): Adds element e to the front of the list
+    - addLast(E e): Adds element e to the end of the list
+    - removeFirst(): Removes and returns the first element
+    - removeLast(): Removes and returns the last element
+*/
 
-    DISADVANTAGES:
-    ------------------------------------------------------------------------------------
-    - Extra memory overhead: Each node requires an additional pointer to store the previous
-      reference, increasing memory usage compared to singly linked lists
-    - More complex implementation: Maintaining both next and previous pointers requires
-      additional complexity when inserting or deleting nodes
-
- */
 
 public class DoublyLinkedList<E> {
 
-    //-------------- nested Node class ---------------
+    //-------------- NESTED NODE CLASS --------------
     private static class Node<E> {
-        private final E element;                // Reference to the element stored at this Node
-        private Node<E> prev;                   // Reference to the previous Node in the list
-        private Node<E> next;                   // Reference to the subsequent Node in the list
+        private E element;                      // reference to the element stored at this node
+        private Node<E> prev;                   // reference to the previous node in the list
+        private Node<E> next;                   // reference to the subsequent node in the last
         public Node(E e, Node<E> p, Node<E> n) {
             element = e;
             prev = p;
@@ -64,73 +59,79 @@ public class DoublyLinkedList<E> {
             next = n;
         }
     }
-    //---------- end of nested Node class ------------
+    //-------------- END OF NESTED NODE CLASS --------------
 
-    // Instance variables of the DoublyLinkedList
-    private final Node<E> header;               // Header sentinel
-    private final Node<E> trailer;              // Trailer sentinel
-    private int size = 0;                       // Number of elements in the list
+    // INSTANCE VARIABLES OF DOUBLY LINKED LIST
+    private Node<E> header;                     // header sentinel
+    private Node<E> trailer;                    // trailer sentinel
+    private int size = 0;                       // number of element in the list
 
     // Constructs a new empty list
     public DoublyLinkedList() {
-        header = new Node<>(null, null, null);     // Create header
-        trailer = new Node<>(null, header, null);     // Trailer is preceded by header
-        header.setNext(trailer);                            // Header is followed by trailer
+        header = new Node<>(null, null, null);
+        trailer = new Node<>(null, header, null);
+        header.setNext(trailer);
     }
 
-    // Public Access Methods:
+    // ACCESS METHODS
     public int size() {
         return size;
     }
     public boolean isEmpty() {
         return size == 0;
     }
-    public E first() {
+    public E first() {                          // Returns (but does not remove) the first element of the list
         if (isEmpty()) {
             return null;
         }
-        return header.getNext().getElement();               // First element is after header sentinel
+        return header.getNext().getElement();   // First element is after header sentinel
     }
-    public E last() {
+    public E last() {                           // Returns (but does not remove) the last element of the list
         if (isEmpty()) {
             return null;
         }
-        return trailer.getPrev().getElement();              // Last element is before trailer
+        return trailer.getPrev().getElement();  // Last element is before trailer sentinel
     }
 
-    // Public Update Methods:
+    // PUBLIC UPDATE METHODS
+
     // Adds element e to the front of the list
     public void addFirst(E e) {
-        addBetween(e, header, header.getNext());    // Place just after the header
+        addBetween(e, header, header.getNext());    // Place just after the header sentinel
     }
+
     // Adds element e to the end of the list
     public void addLast(E e) {
-        addBetween(e, trailer.getPrev(), trailer);  // Place just before the trailer
+        addBetween(e, trailer.getPrev(), trailer);  // Place just after the trailer sentinel
     }
+
     // Removes and returns the first element of the list
     public E removeFirst() {
         if (isEmpty()) {
             return null;                        // Nothing to remove
         }
-        return remove(header.getNext());        // First element is after header
+        return remove(header.getNext());        // First element is after header sentinel
     }
-    // Removes and returns the last element of the last
+
+    // Removes and return the last element of the list
     public E removeLast() {
         if (isEmpty()) {
-            return null;                        // Nothing to return
+            return null;                        // Nothing to remove
         }
-        return remove(trailer.getPrev());       // Last element is before the trailer
+        return remove(trailer.getPrev());       // Last element is before trailer sentinel
     }
 
+    // PRIVATE UPDATE METHODS
 
-    // Private Update Methods:
     // Adds element e to the linked list in between the given nodes
-    private void addBetween(E e, Node<E> predecessor, Node <E> successor) {
-        Node<E> newest = new Node<>(e, predecessor, successor);     // Create and link a new Node
+    private void addBetween(E e, Node<E> predecessor, Node<E> successor) {
+        // Create and link new Node
+        Node<E> newest = new Node<>(e, predecessor, successor);
         predecessor.setNext(newest);
         successor.setPrev(newest);
         size++;
     }
+
     // Removes the given node from the list and returns its element
     private E remove(Node<E> node) {
         Node<E> predecessor = node.getPrev();
@@ -140,5 +141,4 @@ public class DoublyLinkedList<E> {
         size--;
         return node.getElement();
     }
-
 }
