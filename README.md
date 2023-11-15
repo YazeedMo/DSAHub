@@ -18,7 +18,7 @@ A collection of my implementations and study notes on Data Structures and Algori
         - [Queues](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues)
             - [Queue](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/Queue)
             - [CircularQueues](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/CircularQueues) 
-            - [Deque](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/Deque/Deque)
+            - [Deque](https://github.com/YazeedMo/DSAHub/tree/master/Java/DataStructures/Linear/Queues/Deque)
 
 
 - [Algorithms](https://github.com/YazeedMo/DSAHub/tree/master/Java/Algorithms)
